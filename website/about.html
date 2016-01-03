@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>E-Biblio. Online library. About</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/foundation.min.css">
+        <link rel="stylesheet" href="css/foundation.css">
+		<link rel="stylesheet" href="css/custom.css">
+		
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,800italic,300italic,400italic,600,600italic,700,700italic,800" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container background-beige">
+			<header class="row" id="main">
+				<div class="large-4 column">
+					<div class="brand">
+						<a href="index.html">E-biblio. Online library</a>
+					</div>
+				</div>
+				
+                
+                <div class="menu-wrap">
+                    <nav id="main">
+                        <ul class="menu">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Library</a></li>
+                            <li><a href="#">Categories</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Romance</a></li>
+                                    <li><a href="#">Drama</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#" class="button button-primary">Sign up</a></li>
+                        </ul>
+                    </nav>
+                </div>
+			</header>
+			
+		</div>
+	
+		<div class="container background-yellow">
+			
+		</div>
+		
+		<div class="container background-green">
+			<?php
+
+                $hostname = "localhost";
+                $username = "root";
+                $password = "";
+
+                $databaseName = "libraryManagement";
+
+                $dbConnected = mysql_connect($hostname, $username, $password);
+
+                if(!$dbConnected){
+                    die('Fail to connect: ' . mysql_error());
+                }
+
+                echo 'Connected succesfully';
+
+                $dbSelected = mysql_select_db($databaseName, $dbConnected);
+
+                ?>
+		</div>
+		
+		
+		<footer>
+			<div class="container background-darkgreen">
+				<div class="row copyright">
+					<p>
+						<span>E-Biblio. Online Library</span>
+						©
+						<em id="copyright-year">2015</em>
+						|
+						<a href="#">Privacy Policy</a>
+					</p>
+					
+					<nav id="icons" class="large-8 column">
+						<ul>
+							<li><a href="#"><img src="img/facebook.png" alt></a></li>
+							<li><a href="#"><img src="img/twitter.png" alt></a></li>
+							<li><a href="#"><img src="img/google-plus.png" alt></a></li>
+							<li><a href="#"><img src="img/instagram.png" alt></a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</footer>
+        
+	</body>
+</html>

@@ -1,0 +1,584 @@
+body{
+	font-family:"Open Sans";
+}
+
+/*
+**Headers
+*/
+h1,
+h2,
+h3,
+h4,
+h5{
+	font-family:"Lato";
+}
+
+/*
+**Containers
+*/
+.container {
+	padding:40px 20px;
+	float: center;
+}
+
+.container-spacy{
+	padding:80px 20px;
+}
+
+/*
+**Backgrounds
+*/
+.background-beige{
+	background-color:#F3F3F3
+}
+
+.background-book{
+	background-color : #FFECEC;
+}
+
+.background-green{
+	background-color:#B3E4A5
+}
+
+.background-yellow{
+	background-color:#FF7466
+}
+
+.background-magenta{
+	background-color:#FF7466;
+	padding : 20px 150px 20px 150px;
+	height:700px;
+
+}
+
+#welcome , #logout{
+	float:right;
+	/*margin-right:150px;*/
+	/*display: block;*/
+    position:relative;
+	font-family: 'Open Sans';
+	font-size:78%;
+	text-transform:uppercase;
+	font-weight:600;
+}
+
+
+.background-magenta #main{ 
+	width:960px;
+	margin:50px auto;
+	font-family:"Lato";
+	margin:10px;
+}
+
+.background-magenta span {
+	color:red
+}
+
+.background-magenta h1 {
+	color: #FFFFFF;
+	font-family: 600 20px 'Open Sans';
+	font-size: 30px;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.background-magenta h2 {
+	background-color:#FEFFED;
+	text-align:center;
+	border-radius:10px 10px 0 0;
+	margin:-10px -40px;
+	padding:15px
+}
+
+.background-magenta #login {
+	width:300px;
+	background-color: white;
+	float:left;
+	border-radius:10px;
+	font-family:"Lato";
+	border:2px solid #ccc;
+	padding:10px 40px 25px;
+	margin-top:30px;
+	margin-left:100px
+}
+
+
+.background-magenta #register {
+	width:400px;
+	background-color: white;
+	float:right;
+	border-radius:10px;
+	font-family:"Lato";
+	border:2px solid #ccc;
+	padding:10px 40px 25px;
+	margin-top:30px;
+	margin-right:100px;
+}
+.background-magenta input[type=text],input[type=password] {
+	width:99.5%;
+	padding:10px;
+	margin-top:8px;
+	border:1px solid #ccc;
+	padding-left:5px;
+	font-size:16px;
+	font-family:"Lato"
+}
+.background-magenta .signup input[type=submit] {
+	width:100%;
+	background-color:#FFBC00;
+	color:#fff;
+	border:2px solid #FFCB00;
+	padding:10px;
+	font-size:20px;
+	cursor:pointer;
+	border-radius:5px;
+	margin-bottom:15px;
+	margin-top: 15px
+}
+
+#approve, #save_book{
+	background: url('../img/check.png');
+	background-size: 46px 46px;
+	width:50px;
+	height:50px;
+}
+
+#del_book, #del_user{
+	background: url('../img/delete.png');
+	background-size: 46px 46px;
+	width:50px;
+	height:50px;
+}
+
+
+
+.background-darkgreen{
+	background-color:#00726D
+}
+/*
+**Header
+*/
+header#main{
+	margin-bottom:40px;
+}
+
+header#main .brand a{
+	display:block;
+	font-family:"Pacifico";
+	font-size:2em;
+	color:#00726D;
+	margin-bottom:20px;
+}
+
+header#main .brand a:hover{
+	font-family:"Pacifico";
+	font-size:2em;
+	color: #00B2C1;
+}
+
+/*
+**Nav
+*/
+#logoutmenu{
+	list-style-type:none;
+	float : right;
+	padding-top: 0px;
+	display: inline-block;
+}
+nav#main ul{
+	list-style-type: none;
+	margin:0;
+	padding:0;
+	float:right;
+}
+
+nav#main ul li{
+	display: inline-block;
+    position:relative;
+	margin-right:20px;
+}
+
+nav#main ul li:last-child{
+	margin-right:0;
+}
+
+nav#main ul li a{
+    transition:all linear 0.15s;
+	font-size:78%;
+	text-transform:uppercase;
+	font-weight:600;
+}
+
+nav#main ul li a:not(.button){
+	color:#00726D;
+}
+
+nav#main ul li a:not(.button):hover{
+	color:#00B2C1;
+}
+
+nav#icons ul{
+	list-style-type: none;
+	margin:0;
+	padding:0;
+	float:right;
+}
+
+nav#icons ul li{
+	display: inline-block;
+	margin-right:20px;
+}
+
+
+.menu li:hover .sub-menu {
+    z-index:1;
+    opacity:1;
+}
+
+.sub-menu {
+    width:180%;
+    padding:5px 0px;
+    position:absolute;
+    top:100%;
+    left:0px;
+    z-index:-1;
+    opacity:0;
+    transition:opacity linear 0.15s;
+    box-shadow:0px 2px 3px rgba(0,0,0,0.2);
+    background:#F3F3F3;
+}
+ 
+.sub-menu li {
+    width:100%;
+    display:block;
+    font-size:16px;
+}
+ 
+.sub-menu li a {
+    padding:10px 30px;
+    display:block;
+}
+ 
+.sub-menu li a:hover, .sub-menu .current-item a {
+    background:#B3E4A5;
+}
+
+
+/*
+**Buttons
+*/
+.button{
+	padding:14px 30px;
+	border-radius:5px;
+}
+
+.button-primary{
+	background:#00726D;
+	color:#fff;
+}
+.button-primary:hover{
+	background:#00B2C1;
+	color:#fff;
+}
+
+/*
+**Feature
+*/
+
+.feature{
+	margin-top:20px;
+}
+
+.feature h1{
+	font-family:"Open Sans";
+	font-size:4.5em;
+	color:#FF7466;
+	text-transform:uppercase;
+	font-weight:900;
+	line-height:65px;
+	margin-bottom:40px;
+}
+
+.feature h5{
+	font-family:"Open Sans";
+	color:#FF7466;
+	margin-bottom:40px;
+	text-align:right;
+}
+
+/*
+**Popular
+*/
+.popular{
+	margin-top:20px;
+}
+
+.popular h3{
+    color: #333745;
+    font: 300 40px/40px 'Open Sans';
+    margin: 5px 0 33px 0;
+    text-transform: uppercase;
+    padding-bottom: 33px;
+    border-bottom: 1px solid #fff;
+    width: 100%;
+}
+
+.popular a{
+	color: #00726D;
+	font-family: 600 20px 'Open Sans';
+	text-transform: uppercase;
+}
+
+.popular a:hover{
+	color:#00B2C1;
+}
+.title{
+	font: 400 15px 'Open Sans';
+    color: #333745;
+    margin-top: -2px;
+    text-transform: uppercase;
+}
+
+
+.popular img{
+    vertical-align: middle;
+	margin-bottom:10px;
+}
+
+
+.about p{
+	font-family: "Lato";
+	font-size:1.2em;
+	font-weight:300;
+	text-transform:uppercase;
+	text-align:center;
+	color:#fff;
+	margin-bottom:10px;
+}
+
+img.icons{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer p {
+    font: 300 14px 'Open Sans';
+    color: #00B2C1;
+    float: left;
+}
+
+footer span{
+	color: #fff;
+	font-weight: 600;
+}
+
+footer a{
+	color: #00B2C1;
+}
+
+footer em{
+	font-style: normal;
+}
+
+
+/*Account table*/
+#userAccount input{
+	font-family : 'Lato';
+}
+
+
+/* Styles for search results */
+.results {
+  margin-top: 50px;
+}
+.results .search-results {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.results img {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+
+
+/*___________________________________________SEARCH ELEMENTS__________________________________________*/
+
+
+
+
+
+input[type="text"].dream-search {
+  width: 150px;
+  padding-left: 35px;
+}
+
+.my-search-image {
+    
+    border:0 none;
+    cursor:pointer;
+    height:20px;
+    text-indent:-9999px;
+    width:20px;
+}
+
+.searchbar {
+	display: table;
+	margin-top: -45px;
+	margin-bottom: 0;
+	margin-left: 59rem;
+	margin-right: 0;
+}
+
+
+
+/*____________________________________TABS____________________________________________*/
+
+.tabform{
+	position:relative;
+	float:left;
+}
+.tabs input[type=radio] {
+	  position: absolute;
+	  top: -9999px;
+	  left: -9999px;
+      }
+	.tabs {
+	width: 1100px;
+	float: none;
+	list-style: none;
+	position: relative;
+	padding: 0;
+	margin: 75px auto;
+	}
+	.tabs li{
+	float: left;
+	}
+	.tabs label {
+	  display: block;
+	  padding: 10px 20px;
+	  border-radius: 2px 2px 0 0;
+	  color: #black;
+	  font-size: 20px;
+	  font-weight: normal;
+	  font-family: 'Lato';
+	  background: rgba(255,255,255,0.2);
+	  cursor: pointer;
+	  position: relative;
+	  top: 3px;
+	  -webkit-transition: all 0.2s ease-in-out;
+	  -moz-transition: all 0.2s ease-in-out;
+	  -o-transition: all 0.2s ease-in-out;
+	  transition: all 0.2s ease-in-out;
+	}
+	.tabs label:hover {
+	background: rgba(255,255,255,0.5);
+	top: 0;
+	}
+
+	[id^=tab]:checked + label {
+	background: #F3F3F3;
+	color: black;
+	top: 0;
+	}
+
+	[id^=tab]:checked ~ [id^=tab-content] {
+	  display: block;
+	}
+	.tab-content{
+	z-index: 2;
+	display: none;
+	text-align: left;
+	width: 100%;
+	font-size: 20px;
+	line-height: 140%;
+	padding-top: 10px;
+	background: #F3F3F3;
+	padding: 15px;
+	color: black;
+	position: absolute;
+	top: 53px;
+	left: 0;
+	box-sizing: border-box;
+	-webkit-animation-duration: 0.5s;
+	-o-animation-duration: 0.5s;
+	-moz-animation-duration: 0.5s;
+	animation-duration: 0.5s;
+	}
+
+	
+/*______________________________STARS_____________________________________*/
+
+.rating:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+    clip:rect(0,0,0,0);
+}
+
+.rating:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:200%;
+    line-height:1.2;
+    color:#ddd;
+    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:before {
+    content: '★ ';
+}
+
+.rating > input:checked ~ label {
+    color: #f70;
+    text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: gold;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: #ea0;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > label:active {
+    position:relative;
+    top:2px;
+    left:2px;
+}
+
+
+/*____________________________________________________TABLE USER___________________________________*/
+table, th, td {
+    border: 1px solid #d3d3d3;
+    border-collapse: collapse;
+}
+.tables th, td {
+    padding: 5px;
+}
+
+.tables{
+	font-size: 14px;
+}
+
+/*<a href="http://www.freepik.com/free-vector/fairy-tale-book_772686.htm">Designed by Freepik</a>
+<a href="http://www.freepik.com/free-vector/library-bookshelf_762566.htm">Designed by Freepik</a>
+<a href="http://www.freepik.com/free-vector/books-on-shelves-in-flat-design_783180.htm">Designed by Freepik</a>
+A reader lives a thousand lives before he dies
+George R. R. Martin
+*/
+
+
+
