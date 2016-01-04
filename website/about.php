@@ -1,5 +1,8 @@
 <?php
 	session_start();
+	include_once("searchbook.php");
+	include_once('controller/book_controller.php');
+	$bookController = new BookController();
 ?>
 
 <!DOCTYPE html>
@@ -41,12 +44,9 @@
                         <ul class="menu">
                             <li><a href="index.php">Home</a></li>
                             <li><a href="profile.php">Profile</a></li>
-                            <li><a href="#">Categories</a>
+                            <li><a href="book_page.php">Categories</a>
                                 <ul class="sub-menu">
-                                    <li><a href="#">Love</a></li>
-                                    <li><a href="#">Fiction</a></li>
-                                    <li><a href="#">Mystery</a></li>
-                                    <li><a href="#">Personal Development</a></li>
+                                    <?php echo $bookController->getCategories() ?>
                                 </ul>
                             </li>
                             <li><a href="about.php">About</a></li>
@@ -61,14 +61,11 @@
 				  <div class="large-12  columns">
 						<form action = "" method = "post">
 							<div class="small-12 columns">
-							  <input type="text" class="dream-search" placeholder="Search">
-							  <a href = "">
-								<img name="register" class="my-search-image" src="img/search.png" alt="">
-							  </a>
+							  <input name="tosearch" type="search" class="dream-search" placeholder="Search">
+							  <input type = "hidden" name = "search" value="">
 							</div>
 						</form>
 				  </div>
-
 			</div>
 		</div>
 	

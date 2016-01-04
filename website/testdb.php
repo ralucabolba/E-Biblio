@@ -1,12 +1,12 @@
 <?php
 
 $hostname = "localhost";
-$username = "root";
+$usernameDB = "root";
 $password = "";
 
 $databaseName = "libraryManagement";
 
-$dbConnected = mysql_connect($hostname, $username, $password);
+$dbConnected = mysql_connect($hostname, $usernameDB, $password);
 
 if(!$dbConnected){
     die('Fail to connect: ' . mysql_error());

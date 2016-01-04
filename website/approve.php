@@ -19,4 +19,20 @@ if (isset($_POST['approve'])) {
 	header('location: profile.php');
 }
 
+if (isset($_POST['deletereview'])) {
+	
+	$id = $_POST['idreview'];
+
+	// To protect MySQL injection for Security purpose
+	$id = stripslashes($id);
+	$id = mysql_real_escape_string($id);
+	
+	$query = "DELETE FROM review WHERE idReview = $id";
+	$result = mysql_query($query) or die(mysql_error());
+	
+	mysql_close();
+	
+	header('location: profile.php');
+}
+
 ?>

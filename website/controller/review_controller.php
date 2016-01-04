@@ -19,6 +19,7 @@ class ReviewController{
 						  <th>Id book</th>
 						  <th>Approved</th>
 						  <th>Approve review</th>
+						  <th>Delete review</th>
 						</tr>
 					  </thead>
 					  <tbody>";
@@ -35,6 +36,15 @@ class ReviewController{
 							<!--<input type='image' src='img/check.png' alt='submit' style = 'width: 40px; height: 40px;' name='approve'/>-->
 							<input type='hidden' name='idreview' value='$review->idReview' />
 							<input type='submit' name='approve' value='' id='approve'/>
+							
+							</form>
+						  </td>
+						  
+						  <td>
+							<form action='' method='post'>
+							<!--<input type='image' src='img/check.png' alt='submit' style = 'width: 40px; height: 40px;' name='approve'/>-->
+							<input type='hidden' name='idreview' value='$review->idReview' />
+							<input type='submit' name='deletereview' value='' id='deletereview'/>
 							
 							</form>
 						  </td>

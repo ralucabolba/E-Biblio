@@ -46,10 +46,7 @@
                             <li><a href="profile.php">Profile</a></li>
                             <li><a href="book_page.php">Categories</a>
                                 <ul class="sub-menu">
-                                    <li><a href="#">Love</a></li>
-                                    <li><a href="#">Fiction</a></li>
-                                    <li><a href="#">Mystery</a></li>
-                                    <li><a href="#">Personal Development</a></li>
+                                    <?php echo $bookController->getCategories() ?>
                                 </ul>
                             </li>
                             <li><a href="about.php">About</a></li>
@@ -64,12 +61,11 @@
 				  <div class="large-12  columns">
 						<form action = "" method = "post">
 							<div class="small-12 columns">
-							   <input name="tosearch" type="text" class="dream-search" placeholder="Search">
-							  <input type="hidden" name = "search" value="">
+							  <input name="tosearch" type="search" class="dream-search" placeholder="Search">
+							  <input type = "hidden" name = "search" value="">
 							</div>
 						</form>
 				  </div>
-
 			</div>
 			
 		</div>
@@ -79,9 +75,9 @@
 			  <div class="large-12 columns ">
 				<div class="row">
 				  <div class="large-9 columns">
-					<p> Search Results for '<?php echo $_SESSION['searched_item']?>'</p>
+					<p> Search Results for '<?php if (isset($_SESSION['searched_item'])){ echo $_SESSION['searched_item'];} ?>'</p>
 				  </div>
-				  <div class=" large-3 columns ">
+				  <!--<div class=" large-3 columns ">
 					<select name="sortOptions">
 					  <option value="sortby">Sort By</option>
 					  <option value="cats">Cats</option>
@@ -89,10 +85,21 @@
 					  <option value="author">Author</option>
 					  <option value="mrecats">More Cats</option>
 					</select>
-				  </div>
+				  </div>-->
 				</div>
 				<div class="search-results">
-					<?php echo $bookController->getSearchBookTable($_SESSION['searched_item']); ?>
+					<?php 
+					
+					if(isset($_SESSION['searched_item'])){
+						echo $bookController->getSearchBookTable($_SESSION['searched_item']); 
+						unset ($_SESSION['searched_item']);
+					}
+					else if(isset($_GET['category'])){
+						echo $bookController->getCategoryTable($_GET['category']); 
+						unset ($_GET['category']);
+					}
+					
+					?>
 				</div>
 				<!--<a href="#" class="button right"> show more results &raquo;</a>-->
 			  </div>

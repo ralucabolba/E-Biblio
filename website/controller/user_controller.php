@@ -2,7 +2,7 @@
 
 include_once ("models/user_model.php");
 include_once('modify_account.php');
-include_once "del_user.php";
+
 
 class UserController{
 	function getUsersTable(){
@@ -32,8 +32,9 @@ class UserController{
 						  <td>$user->username</td>
 						  <td>
 							<form action='' method='post'>
-								<input type='hidden' name='user_to_del' value='$user->idUser'>
-								<input type='submit' name='delete_user' value='' id='del_user'>
+								<input type='hidden' name='user_to_del' value='$user->idUser' />
+								<input type='submit' name='delete_user' value='' id='del_user'/>
+							</form>
 						  </td>
 						</tr>";
 		}
@@ -48,31 +49,32 @@ class UserController{
 		$user = $userModel->getUserByUsername($username);
 		
 		$result = "";
+		if($user){
 					
-		$result = "<div class = 'small-8 column userAccount'>
-					<form action='' method='post'>
-						<label>First name: 
-							<input type='text' name = 'firstname' value='$user->firstname' />
-						</label>
-						
-						<label>Last name: 
-							<input type='text' name = 'lastname' value='$user->lastname' />
-						</label>
-						
-						<label>Email: 
-							<input type='text' name = 'email' value='$user->email' />
-						</label>
-						
-						<label>Username: 
-							<input type='text' name = 'username' value='$user->username' />
-						</label>
-						
-						
-						<input name='modify' type='submit' value=' Modify '>
-						
-					</form>	
-				   </div>";
-
+			$result = "<div class = 'small-8 column userAccount'>
+						<form action='' method='post'>
+							<label>First name: 
+								<input type='text' name = 'firstname' value='$user->firstname' />
+							</label>
+							
+							<label>Last name: 
+								<input type='text' name = 'lastname' value='$user->lastname' />
+							</label>
+							
+							<label>Email: 
+								<input type='text' name = 'email' value='$user->email' />
+							</label>
+							
+							<label>Username: 
+								<input type='text' name = 'username' value='$user->username' />
+							</label>
+							
+							
+							<input name='modify' type='submit' value=' Modify ' id='mod'>
+							
+						</form>	
+					   </div>";
+		}
         return $result;
 	}
 }

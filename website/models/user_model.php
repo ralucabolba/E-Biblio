@@ -1,22 +1,17 @@
 <?php
 
 include_once ("entities/user_entity.php");
-include_once "testdb.php";
+//include_once "testdb.php";
 		
 
 class UserModel{
 	function getUsers(){
+		require "testdb.php";
+		
 		$query = "SELECT * FROM users WHERE idUser > 0";
 		$result = mysql_query($query) or die(mysql_error());
 		
 		//echo $query;
-		
-		$idUser = "";
-		$firstname = "";
-		$lastname = "";
-		$email = "";
-		$usernam = "";
-		$password = "";
 		
 		$users = array();
 		
@@ -32,12 +27,13 @@ class UserModel{
 			
 			array_push($users, $user);
 		}
-		
+		mysql_close();
 		return $users;
 	}
 	function getUserByUsername($username){
+		require "testdb.php";
 		
-		$query = "SELECT * FROM users WHERE username = '$username'";
+		$query = "SELECT * FROM users WHERE username LIKE '$username'";
 		$result = mysql_query($query) or die(mysql_error());
 		
 		//echo $query;
@@ -59,10 +55,10 @@ class UserModel{
 			
 			$user = new User($idUser, $firstname, $lastname, $email, $usernam, $password);
 			
-			
+			mysql_close();
 			return $user;
 		}
-		
+		mysql_close();
 		return null;
 	}
 	
@@ -73,6 +69,7 @@ class UserModel{
 		$result = mysql_query($query) or die(mysql_error());
 		
 		while($row = mysql_fetch_array($result)){
+			mysql_close();
 			return $row[0];
 		}
 		

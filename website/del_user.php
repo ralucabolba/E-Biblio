@@ -11,7 +11,8 @@ if (isset($_POST['delete_user'])) {
 	$id = stripslashes($id);
 	$id = mysql_real_escape_string($id);
 	
-	$query = "DELETE FROM users WHERE idUser=$id";
+	//echo $_POST['user_to_del'];
+	$query = "DELETE FROM users WHERE idUser = $id";
 	$result = mysql_query($query) or die(mysql_error());
 	
 	mysql_close();

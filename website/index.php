@@ -1,6 +1,9 @@
 <?php
 	session_start();
 	include_once("searchbook.php");
+	
+	include_once('controller/book_controller.php');
+	$bookController = new BookController();
 ?>
 <!DOCTYPE html>
 <html>
@@ -60,10 +63,7 @@
                             <li><a href="profile.php">Profile</a></li>
                             <li><a href="book_page.php">Categories</a>
                                 <ul class="sub-menu">
-                                    <li><a href="#">Love</a></li>
-                                    <li><a href="#">Fiction</a></li>
-                                    <li><a href="#">Mystery</a></li>
-                                    <li><a href="#">Personal Development</a></li>
+                                    <?php echo $bookController->getCategories() ?>
                                 </ul>
                             </li>
                             <li><a href="about.php">About</a></li>
@@ -78,15 +78,11 @@
 				  <div class="large-12  columns">
 						<form action = "" method = "post">
 							<div class="small-12 columns">
-							  <input name="tosearch" type="text" class="dream-search" placeholder="Search">
-							  <!--<a name="search" href = "">
-								<img  class="my-search-image" src="img/search.png" alt="">
-							  </a>-->
+							  <input name="tosearch" type="search" class="dream-search" placeholder="Search">
 							  <input type = "hidden" name = "search" value="">
 							</div>
 						</form>
 				  </div>
-
 			</div>
 			
 			<div class="row feature">
@@ -124,36 +120,7 @@
 				<h3>MOST POPULAR</h3>
                 
                 <?php 
-                    include 'testdb.php';
-                    if($dbConnected){
-                        $sql = "select idBook, title, author, cover, location from book";
-                        $result = mysql_query($sql);
-                        
-                        $i = 1;
-                        while($i <= 4 and $row = mysql_fetch_array($result, MYSQL_ASSOC)){
-							$idBook = $row["idBook"];
-                            $title = $row["title"];
-                            $author = $row["author"];
-                            $cover = $row["cover"];
-                            $location = $row["location"];
-                            
-                            $i += 1 ;
-                            ?>
-                            <div class="medium-3 column">
-                                <img src="<?php echo htmlspecialchars($cover) ?>" width="250" height="375" alt="">
-                                <a href="book.php?title=<?php echo $title?>&author=<?php echo $author?>&current_book=<?php echo $idBook?>">
-									<?php 
-										echo $title ;
-										//$_SESSION['title'] = $title;
-										//$_SESSION['author'] = $author;
-									?>
-								</a> 
-                                <p class="title"><?php echo "by " . $author ?></p>
-                            </div>
-                            <?php
-                            
-                        }
-                    }
+                    include_once "popular.php";
                 ?>
                 
 			</div>

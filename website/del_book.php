@@ -11,7 +11,7 @@ if (isset($_POST['delete_book'])) {
 	$id = stripslashes($id);
 	$id = mysql_real_escape_string($id);
 	
-	$query = "DELETE FROM book WHERE idBook=$id";
+	$query = "DELETE FROM book WHERE idBook = $id";
 	$result = mysql_query($query) or die(mysql_error());
 	
 	mysql_close();

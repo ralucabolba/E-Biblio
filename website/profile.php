@@ -4,11 +4,19 @@
 include_once('controller/user_controller.php');
 include_once('controller/book_controller.php');
 include_once('controller/review_controller.php');
+include_once('controller/read_controller.php');
 
+include_once("searchbook.php");
+include_once "approve.php";
+include_once "del_book.php";
+include_once "del_user.php";
+include_once "save_book.php";
+include_once "insertbook.php";
 
 $userController = new UserController();
 $bookController = new BookController();
 $reviewController = new ReviewController();
+$readController = new ReadingController();
 ?>
 
 <!DOCTYPE html>
@@ -55,10 +63,7 @@ $reviewController = new ReviewController();
                             <li><a href="profile.php">Profile</a></li>
                             <li><a href="#">Categories</a>
                                 <ul class="sub-menu">
-                                    <li><a href="#">Love</a></li>
-                                    <li><a href="#">Fiction</a></li>
-                                    <li><a href="#">Mystery</a></li>
-                                    <li><a href="#">Personal Development</a></li>
+                                    <?php echo $bookController->getCategories() ?>
                                 </ul>
                             </li>
                             <li><a href="about.php">About</a></li>
@@ -74,14 +79,11 @@ $reviewController = new ReviewController();
 				  <div class="large-12  columns">
 						<form action = "" method = "post">
 							<div class="small-12 columns">
-							  <input type="text" class="dream-search" placeholder="Search">
-							  <a href = "">
-								<img name="register" class="my-search-image" src="img/search.png" alt="">
-							  </a>
+							  <input name="tosearch" type="search" class="dream-search" placeholder="Search">
+							  <input type = "hidden" name = "search" value="">
 							</div>
 						</form>
 				  </div>
-
 			</div>
 		</div>
 	
@@ -140,7 +142,14 @@ $reviewController = new ReviewController();
 				  <input type="radio" name="tabs" id="tab2">
 				  <label for="tab2">My books</label>
 				  <div id="tab-content2" class="tab-content animated fadeIn">
-					
+						<?php
+							if(isset($_SESSION['login_user'])){
+								echo $readController->getReadTable($_SESSION['login_user']);
+							}
+							else{
+								echo "You must login in order to view or modify your personal information.";
+							}
+						?>
 				  </div>
 				</li>
 				<!--<li>

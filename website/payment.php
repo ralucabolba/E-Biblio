@@ -1,16 +1,9 @@
 <?php
-session_start();
-
-include_once('login.php');
-include_once('register.php');
-include_once('searchbook.php');
-
-include_once('controller/book_controller.php');
+	session_start();
+	include_once("searchbook.php");
+	include_once("pay.php");
+	include_once('controller/book_controller.php');
 	$bookController = new BookController();
-
-//if(isset($_SESSION['login_user'])){
-//	header("location: profile.php");
-//}
 ?>
 
 <!DOCTYPE html>
@@ -37,12 +30,12 @@ include_once('controller/book_controller.php');
 						echo "</i></p> </li>
 									<li> <a href='logout.php' id='logout'>Log Out</a> </li>
 							</ul>";
-					}
+			}
 			?>
 			<header class="row" id="main">
 				<div class="large-4 column">
 					<div class="brand">
-						<a href="index.php">E-biblio. Online library</a>
+						<a href="index.html">E-biblio. Online library</a>
 					</div>
 				</div>
 				
@@ -77,47 +70,50 @@ include_once('controller/book_controller.php');
 			</div>
 		</div>
 	
-		<div class="container background-magenta">
-			<div id="row main" class='signup'>
-				<h1>Login or Register</h1>
-					<div id="login">
-						<h2>Login</h2>
-						<form action="" method="post">
-							<label>Username :</label>
-							<input id="name" name="username" placeholder="username" type="text">
-							
-							<label>Password :</label>
-							<input id="password" name="password" placeholder="**********" type="password">
-							
-							<input name="submit" type="submit" value=" Login ">
-							<span><?php echo $error; ?></span>
-						</form>
-					</div>
-					
-					
-					<div id="register">
-						<h2>Register</h2>
-						<form action="" method="post">
-							<label>First name :</label>
-							<input id="firstname" name="firstname" placeholder="firstname" type="text">
-							
-							<label>Last name :</label>
-							<input id="lastname" name="lastname" placeholder="lastname" type="text">
-							
-							<label>Email :</label>
-							<input id="email" name="email" placeholder="email" type="text">
-							
-							<label>Username :</label>
-							<input id="name" name="username" placeholder="username" type="text">
-							
-							<label>Password :</label>
-							<input id="password" name="password" placeholder="**********" type="password">
-							
-							<input name="register" type="submit" value=" Register ">
-							<span><?php echo $rerror; ?></span>
-						</form>
-					</div>
-			</div>
+		<div class="container background-book">
+			<section>
+			<form id=payment action='' method='post'>  
+				<fieldset>
+					<legend>Card Details</legend>
+					<ol>
+						<li>
+						<fieldset>
+							<legend>Card Type</legend>
+							<ol>
+								<li>
+									<input id=visa name=cardtype type=radio />
+									<label for=visa>VISA</label>
+								</li>
+								<li>
+									<input id=amex name=cardtype type=radio />
+									<label for=amex>AmEx</label>
+								</li>
+								<li>
+									<input id=mastercard name=cardtype type=radio />
+									<label for=mastercard>Mastercard</label>
+								</li>
+							</ol>
+						</fieldset>
+						</li>
+						<li>
+							<label for=cardnumber>Card Number</label>
+							<input id=cardnumber name=cardnumber type=number required />
+						</li>
+						<li>
+							<label for=secure>Security Code</label>
+							<input id=secure name=secure type=number required />
+						</li>
+						<li>
+							<label for=namecard>Name on Card</label>
+							<input id=namecard name=namecard type=text placeholder="Exact name as on the card" required />
+						</li>
+					</ol>
+				</fieldset>
+				<fieldset>
+					<button type=submit name='pay'>Pay</button>
+				</fieldset>
+			</form>
+			</section>
 		</div>
 		
 

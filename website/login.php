@@ -1,7 +1,9 @@
 <?php
 
 include_once "testdb.php";
-session_start(); 
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+} 
 $error='';
 
 if (isset($_POST['submit'])) {

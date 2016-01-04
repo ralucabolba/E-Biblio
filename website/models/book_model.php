@@ -78,10 +78,10 @@ class BookModel{
 	
 	function getBookCategory(){
 		require "testdb.php";
-		$result = mysql_query("SELECT DISTINCT category FROM book") or die(mysql_error());
+		$result = mysql_query("SELECT DISTINCT category FROM book ORDER BY category ASC") or die(mysql_error());
 		$categories = array();
 		
-		while($row = mysql_fetch_array($result, MYSQL_ASSOC)){
+		while($row = mysql_fetch_array($result)){
 			array_push($categories, $row[0]);
 		}
 		
@@ -109,18 +109,17 @@ class BookModel{
 			$rYear = $row[7];
 			$grades = $row[8];
 			$noGrades = $row[9];
-			$location = $row[10];
+			$price = $row[10];
+			$location = $row[11];
 			
 			$book = new Book($idBook, $title, $author, $publisher, $category, $cover, $description,
-        $rYear, $grades, $noGrades, $location);
+        $rYear, $grades, $noGrades, $price, $location);
 			
 			array_push($book_array, $book);
-			
-			mysql_close();
+		}
+		mysql_close();
 			
 			return $book_array;
-		}
-		
 	}
 	
 	function getBook($title, $author){
