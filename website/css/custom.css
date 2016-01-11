@@ -1,5 +1,7 @@
 body{
 	font-family:"Open Sans";
+	max-width: 100%;
+    overflow-x: hidden;
 }
 
 /*

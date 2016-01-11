@@ -17,22 +17,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,800italic,300italic,400italic,600,600italic,700,700italic,800" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-        
-        <script type = "text/JavaScript">
-        function killCopy(e){
-            return false
-        }
-        function reEnable(){
-            return true
-        }
-        document.onselectstart = new Function("return false")
-        if(window.sidebar){
-            document.onmousedown=killCopy
-            document.onClick=reEnable
-        }
-        </script>
-        
-        
+             
 	</head>
 	<body>
 		<div class="container background-beige">
@@ -61,13 +46,12 @@
                         <ul class="menu">
                             <li><a href="index.php">Home</a></li>
                             <li><a href="profile.php">Profile</a></li>
-                            <li><a href="book_page.php">Categories</a>
+                            <li><a href="#">Categories</a>
                                 <ul class="sub-menu">
                                     <?php echo $bookController->getCategories() ?>
                                 </ul>
                             </li>
                             <li><a href="about.php">About</a></li>
-                            <li><a href="#">Contact</a></li>
                             <li><a href="signup_page.php" class="button button-primary">Sign up</a></li>
                         </ul>
                     </nav>

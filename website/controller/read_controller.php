@@ -29,7 +29,7 @@ class ReadingController{
 		foreach($reads as $r){
 			$result = $result . "<tr>
 						  <td>$r->idRead</td>
-						  <td>$r->title</td>
+						  <td><a href = 'book.php?title=$r->title&author=$r->author'>$r->title</a></td>
 						  <td>$r->author</td>
 						  <td>$r->startdate</td>
 						  <td>$r->enddate</td>

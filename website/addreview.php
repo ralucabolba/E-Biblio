@@ -1,6 +1,6 @@
 <?php
 
-include_once "testdb.php";
+
 include_once "models/user_model.php";
 
 $userModel = new UserModel();
@@ -15,8 +15,10 @@ if (isset($_POST['addreview'])) {
 		$reverror = "You must write your review";
 	}
 	else{
+		
+		
 		$description=$_POST['comment'];
-		echo $_SESSION['login_user'];
+		//echo $_SESSION['login_user'];
 		$user = $userModel->getUserByUsername($_SESSION['login_user']);
 		$idUser = $user->idUser;
 		$idBook = $_SESSION['current_book'];
@@ -33,18 +35,21 @@ if (isset($_POST['addreview'])) {
 		$idBook = mysql_real_escape_string($idBook);
 		
 		
+		require "testdb.php";
+		$query = "INSERT INTO review(description, approved, idUser, idBook) VALUES ('$description', 0, $idUser, $idBook)";
 		
-		$query = "INSERT INTO review(description, approved, idUser, idBook) VALUES ('$description', 0, '$idUser', '$idBook')";
-		$result = mysql_query($query);
+		//echo $query;
+		$result = mysql_query($query) or die(mysql_error());
 		
 		if($result){
 			echo "Your review was saved";
 		}
 		else{
-			$reverror = "Invalid information";
+			echo "Invalid information";
 		}
-		
 		mysql_close();
+		
 	}
 }
+
 ?>

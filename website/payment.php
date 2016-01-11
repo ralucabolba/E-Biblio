@@ -35,7 +35,7 @@
 			<header class="row" id="main">
 				<div class="large-4 column">
 					<div class="brand">
-						<a href="index.html">E-biblio. Online library</a>
+						<a href="index.php">E-biblio. Online library</a>
 					</div>
 				</div>
 				
@@ -45,13 +45,12 @@
                         <ul class="menu">
                             <li><a href="index.php">Home</a></li>
                             <li><a href="profile.php">Profile</a></li>
-                            <li><a href="book_page.php">Categories</a>
+                            <li><a href="#">Categories</a>
                                 <ul class="sub-menu">
                                     <?php echo $bookController->getCategories() ?>
                                 </ul>
                             </li>
                             <li><a href="about.php">About</a></li>
-                            <li><a href="#">Contact</a></li>
                             <li><a href="signup_page.php" class="button button-primary">Sign up</a></li>
                         </ul>
                     </nav>

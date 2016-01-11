@@ -12,6 +12,8 @@ $serror='';
 if (isset($_POST['search'])) {
 	if (!empty($_POST['tosearch'])) {
 		$item = $_POST['tosearch'];
+		
+		//echo $item;
 
 		// To protect MySQL injection for Security purpose
 		$item = stripslashes($item);
@@ -26,6 +28,13 @@ if (isset($_POST['search'])) {
 		
 		if($book_array){
 			$_SESSION['searched_item'] = $item;
+			header("location: book_page.php");
+		}
+		else{
+			if(isset($_SESSION['searched_item'])){
+				unset ($_SESSION['searched_item']);
+			}
+			$serror = "No books found";
 			header("location: book_page.php");
 		}
 	}

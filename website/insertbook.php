@@ -26,8 +26,8 @@ if (isset($_POST['insert_book'])) {
 		//$id = mysql_real_escape_string($id);
 		
 		//echo $_POST['user_to_del'];
-		$query = "INSERT INTO book(title, author, description, publisher, category, cover, rYear, grades, noGrades, price, location)
-					VALUES('$title', '$author', '$description', '$publisher', '$category', CONCAT('img/','$cover'), $rYear, 0, 0, $price, '$location')";
+		$query = "INSERT INTO book(title, author, description, publisher, category, cover, rYear, grades, noGrades, price, location, idLibrary)
+					VALUES('$title', '$author', '$description', '$publisher', '$category', CONCAT('img/','$cover'), $rYear, 0, 0, $price, '$location', 1)";
 		$result = mysql_query($query) or die(mysql_error());
 		
 		mysql_close();

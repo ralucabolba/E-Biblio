@@ -51,7 +51,7 @@ $readController = new ReadingController();
 				
 				<div class="large-4 column">
 					<div class="brand">
-						<a href="index.html">E-biblio. Online library</a>
+						<a href="index.php">E-biblio. Online library</a>
 					</div>
 				</div>
 				
@@ -67,7 +67,6 @@ $readController = new ReadingController();
                                 </ul>
                             </li>
                             <li><a href="about.php">About</a></li>
-                            <li><a href="#">Contact</a></li>
                             <li><a href="signup_page.php" class="button button-primary">Sign up</a></li>
                         </ul>
                     </nav>
@@ -89,7 +88,8 @@ $readController = new ReadingController();
 	
 		<div class="container background-magenta">
 			
-			<?php if($_SESSION['login_user'] == 'admin'){?>
+			<?php if(isset($_SESSION['login_user'])){
+				if($_SESSION['login_user'] == 'admin'){?>
 				<span><?php echo $merror; ?></span>
 			
 				<div class="tabform">
@@ -118,7 +118,7 @@ $readController = new ReadingController();
 				</ul>
 				</div>
 			<?php	
-			} else{
+			} else {
 				?>
 				<span><?php echo $merror; ?></span>
 			
@@ -162,6 +162,10 @@ $readController = new ReadingController();
 				</ul>
 				</div><?php
 			}
+			}
+			else{
+					echo "You must login in order to view or modify your personal information.";
+				}
 			?>
 		</div>
 		

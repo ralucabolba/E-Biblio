@@ -67,6 +67,7 @@ class BookController{
 			}
 		}
 		
+		
 		return $result;
 	}
 	function getBooksTable(){
@@ -90,7 +91,7 @@ class BookController{
 						  <th>Price</th>
 						  <th>Location</th>
 						  <th>Action</th>
-						  <th>Delete</th>
+						  <!--<th>Delete</th>-->
 						</tr>
 					  </thead>
 					  <tbody>";
@@ -110,9 +111,8 @@ class BookController{
 						  <td  contenteditable>$book->grades/$book->noGrades</td>
 						  <td  contenteditable>$book->price</td>
 						  <td contenteditable>$book->location</td>
-						  <td>
+						  <!--<td>
 							
-								<!--
 								
 								<input type='hidden' name='author_save' value='$book->author' />
 								<input type='hidden' name='description_save' value='$book->description' />
@@ -123,11 +123,11 @@ class BookController{
 								<input type='hidden' name='grades_save' value='$book->grades' />
 								<input type='hidden' name='noGrades_save' value='$book->noGrades' />
 								<input type='hidden' name='price_save' value='$book->price' />
-								<input type='hidden' name='location_save' value='$book->location' />-->
+								<input type='hidden' name='location_save' value='$book->location' />
 								
 								<input type='submit' name='save_book' value='' id='save_book'>
 							
-						  </td>
+						  </td>-->
 						  <td>
 							<form action='' method='post'>
 								<input type='hidden' name='book_to_del' value='$book->idBook' />
@@ -139,7 +139,7 @@ class BookController{
 		}
 		$result = $result . "<form action='' method='post'>
 						<tr>
-						  <td  contenteditable><input type='p' name='new_id' value=' ' /></td>
+						  <td/></td>
 						  <td  contenteditable><input type='p' name='new_title' value=' ' /></td>
 						  <td  contenteditable><input type='p' name='new_author' value=' ' /></td>
 						  <td  contenteditable><input type='p' name='new_description' value=' ' /></td>
@@ -204,6 +204,7 @@ class BookController{
 			}
 		}
 		
+		
 		return $result;
 	}
 	
@@ -252,14 +253,14 @@ class BookController{
 		}
 		
 		mysql_close();
-		
-		if($price == 0){
-			$link = $book->location;
+		if(isset($_SESSION['login_user'])){
+			if($price == 0){
+				$link = $book->location;
+			}
+			else{
+				$link = "payment.php";
+			}
 		}
-		else{
-			$link = "payment.php";
-		}
-		
 
 		if($book != null){
 			$_SESSION['current_book'] = $book->idBook;

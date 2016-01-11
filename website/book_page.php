@@ -34,7 +34,7 @@
 			<header class="row" id="main">
 				<div class="large-4 column">
 					<div class="brand">
-						<a href="index.html">E-biblio. Online library</a>
+						<a href="index.php">E-biblio. Online library</a>
 					</div>
 				</div>
 				
@@ -44,13 +44,12 @@
                         <ul class="menu">
                             <li><a href="index.php">Home</a></li>
                             <li><a href="profile.php">Profile</a></li>
-                            <li><a href="book_page.php">Categories</a>
+                            <li><a href="#">Categories</a>
                                 <ul class="sub-menu">
                                     <?php echo $bookController->getCategories() ?>
                                 </ul>
                             </li>
                             <li><a href="about.php">About</a></li>
-                            <li><a href="#">Contact</a></li>
                             <li><a href="signup_page.php" class="button button-primary">Sign up</a></li>
                         </ul>
                     </nav>
@@ -75,7 +74,15 @@
 			  <div class="large-12 columns ">
 				<div class="row">
 				  <div class="large-9 columns">
-					<p> Search Results for '<?php if (isset($_SESSION['searched_item'])){ echo $_SESSION['searched_item'];} ?>'</p>
+					<p> Search Results for '
+					<?php 
+					if (isset($_GET['category'])){
+						echo $_GET['category'];
+					} else
+					if (isset($_SESSION['searched_item'])){
+						echo $_SESSION['searched_item'];
+					} 
+					?>'</p>
 				  </div>
 				  <!--<div class=" large-3 columns ">
 					<select name="sortOptions">
@@ -90,14 +97,17 @@
 				<div class="search-results">
 					<?php 
 					
-					if(isset($_SESSION['searched_item'])){
-						echo $bookController->getSearchBookTable($_SESSION['searched_item']); 
-						unset ($_SESSION['searched_item']);
-					}
-					else if(isset($_GET['category'])){
+					if(isset($_GET['category'])){
 						echo $bookController->getCategoryTable($_GET['category']); 
 						unset ($_GET['category']);
 					}
+					else 
+					if(isset($_SESSION['searched_item'])){
+						echo $bookController->getSearchBookTable($_SESSION['searched_item']); 
+						echo $serror;
+						//unset ($_SESSION['searched_item']);
+					}
+					
 					
 					?>
 				</div>

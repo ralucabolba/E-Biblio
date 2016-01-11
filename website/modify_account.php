@@ -5,7 +5,9 @@ session_start();
 
 $merror='';
 
-$user_check=$_SESSION['login_user'];
+if(isset($_SESSION['login_user'])){
+	$user_check=$_SESSION['login_user'];
+}
 if (isset($_POST['modify'])) {
 	if (empty($_POST['username']) || empty($_POST['firstname']) || empty($_POST['lastname']) || empty($_POST['email'])) {
 		$merror = "You must fill all fields";
